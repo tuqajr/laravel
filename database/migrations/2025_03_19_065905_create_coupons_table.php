@@ -1,28 +1,22 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Http\Controllers;
 
-return new class extends Migration
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class CouponController extends Controller
 {
-    /**
-     * Run the migrations.
-     */
-    public function up()
+    public function addCoupon()
     {
-        Schema::create('coupons', function (Blueprint $table) {
-            $table->id();
-            $table->string('code')->unique(); 
-            $table->decimal('discount', 8, 2);
-            $table->timestamp('expires_at')->nullable();
-            $table->timestamps();
-        });
+        DB::table('coupons')->insert([
+            'code' => 'DISCOUNT10',
+            'discount' => 10.00,
+            'expires_at' => now()->addDays(30),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return response()->json(['message' => 'Coupon added successfully']);
     }
-    
-    public function down()
-    {
-        Schema::dropIfExists('coupons');
-    }
-    
-};
+}

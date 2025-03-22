@@ -1,25 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - My Website</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
+    
     <style>
-        
-        body {
+body {
     font-family: 'Orpheus Pro', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; 
+    color: navy; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
 }
-main h1 {
+
+main {
     text-align: center;
-    color: navy;
-    margin-bottom: 20px; 
-    padding: 10px;
-    font-family: 'Orpheus Pro', serif;
+    flex: 1; 
+    margin: auto; 
+    padding: 20px;
 }
+
+main h1 {
+    color: navy;
+    font-family: 'Orpheus Pro', serif;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+main p, main h2 {
+    color: navy;
+    font-family: 'Orpheus Pro', serif;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
 .navbar {
     padding: 10px;
     display: flex;
@@ -52,63 +73,16 @@ main h1 {
     text-decoration: underline; 
 }
 
-form {
-    height: 400px;
-    max-width: 500px;
-    margin:30px auto; 
-    padding: 40px;
-    border: 3px solidrgb(117, 187, 236);
-    background-color:rgb(164, 213, 248);
-    border-radius: 10px;
-    box-shadow: 0 6px 10px rgba(87, 87, 87, 0.15);
-    text-align: left; 
-}
 
-form label {
-    display: block; 
-    color: navy;
-    text-align: left; 
-    font-weight: 600; 
-    padding: 10px 0 5px; 
-    font-family: 'Orpheus Pro', serif;
-    font-size: 14px; 
-}
 
-input,
-textarea {
-    display: block;
-    margin: 0 auto 15px auto;
-    padding: 12px;
-    width: 90%;
-    border: 1px solid rgba(200, 200, 200, 0.8);
-    border-radius: 4px;
-    font-size: 16px;
-}
-button {
-    display: block;
-    margin: 0 auto; 
-    padding: 12px;
-    width: 95%;
-    background-color:  #e3f2fd;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    color: navy;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color:rgb(70, 175, 250);
-}
 footer {
-    background: linear-gradient(45deg, #e3f2fd, #e3f2fd);
+    background: linear-gradient(45deg, #e3f2fd, rgb(164, 213, 248));
     color: navy;
     padding: 20px 0;
     font-size: 14px;
     text-align: center;
-  }
-  
+    margin-top: auto; 
+}
   .footer-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -172,9 +146,9 @@ footer {
     margin-top: 10px;
   }
     </style>
-  </head>
-  <body>
-  <header>
+</head>
+<body>
+<header>
   <nav class="navbar" style="background-color: #e3f2fd;">
             <ul>
                 <li><a href="{{ route('home') }}">Home</a></li>
@@ -183,30 +157,14 @@ footer {
             </ul>
     </nav>  
     </header>
+
     <main>
-        <h1>Contact Us</h1>
-
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <form action="{{ route('contact.submit') }}" method="POST">
-            @csrf
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
+        <h1>About Us</h1>
+        <p>We are a passionate team dedicated to creating the best products for our customers. Our mission is to improve people's lives through technology.</p>
+        <h2>Our Team</h2>
+        <p>Meet the people who make it all possible.</p>
     </main>
-    
+
     <footer>
         <div class="footer-container">
           <div class="footer-links">
@@ -226,5 +184,7 @@ footer {
         </div>
         <p>&copy; 2025 My Website. All rights reserved.</p>
       </footer>
-  </body>
+</body>
 </html>
+
+
